@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <title>BeastRows Alpha 0.7</title>
+  </head>
+  <!-- All content -->
+  <body class="allContent">
+    <!-- header content -->
+    <header class="header">
+      <!-- Title -->
+      <section class="header__title">
+        <h1 class="header__h1">BeastRows</h1>
+      </section>
+      <!-- Background slideshow -->
+      <ul class="header__slideshow">
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+        <li class="header__slideshow__li">
+          <span class="header__slideshow__li__span"></span>
+        </li>
+      </ul>
+    </header>
+    <!-- Game content -->
+    <main class="mainContent">
+      <!-- Dungeon content -->
+      <section class="mainContent__dungeon">
+        <!-- Dungeon background -->
+        <img
+          class="mainContent__dungeon__img-background img"
+          src="https://i.postimg.cc/SKz7T7Gw/dungeon-Background2.png"
+          alt=""
+        />
+        <!-- Player -->
+        <img
+          class="mainContent__dungeon__img-player player"
+          src="https://i.postimg.cc/PxQD96vF/barbarian-1-run.gif img"
+          alt=""
+        />
+        <!-- monster -->
+        <img
+          class="mainContent__dungeon__img-monster monster"
+          src="https://i.postimg.cc/9MvwxWJH/ezgif-com-gif-maker-6.gif img"
+          alt=""
+          onclick="clickDamage()"
+        />
+        <!-- Start button -->
+        <button class="mainContent__dungeon__start-button start-button">START!</button>
+        <!-- The shop -->
+        <div id="myModal" class="mainContent__dungeon__shopModal">
+          <!-- Shop content -->
+          <div class="mainContent__dungeon__shopModal__content">
+            <!-- Close shop button -->
+            <span class="mainContent__dungeon__shopModal__content__close" id="close_shop">
+              &times;
+            </span>
+            <!-- Shop body -->
+            <div class="mainContent__dungeon__shopModal__content__modal_body" id="modal_body">
+              <!-- Princess skin -->
+              <button
+                class="mainContent__dungeon__shopModal__content__modal_body__button"
+                id="princess_skin"
+                name=""
+              >
+                <img
+                  name="char"
+                  src="https://i.postimg.cc/C13273ZF/princess-crouch-cut.gif"
+                  alt=""
+                  srcset=""
+                  class="mainContent__dungeon__shopModal__content__modal_body__button__princess"
+                  id="princess"
+                />
+                <span>Princess Skin</span>
+              </button>
+              <!-- Orc skin -->
+              <button
+                class="mainContent__dungeon__shopModal__content__modal_body__button"
+                id="orc_skin"
+              >
+                <img
+                  name="char"
+                  src="https://i.postimg.cc/RV14yRLS/orc-1-crouch.gif"
+                  alt=""
+                  srcset=""
+                  class="mainContent__dungeon__shopModal__content__modal_body__button__orc"
+                  id="orc"
+                />
+                <span>Orc Skin</span>
+                <!-- Knight skin -->
+              </button>
+              <button
+                class="mainContent__dungeon__shopModal__content__modal_body__button"
+                id="knight_skin"
+              >
+                <img
+                  name="char"
+                  src="https://i.postimg.cc/76cZPZ5q/soldier-crouch.gif"
+                  alt=""
+                  srcset=""
+                  class="mainContent__dungeon__shopModal__content__modal_body__button__knight"
+                  id="knight"
+                />
+                <span>Knight Skin</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Round count -->
+        <div class="mainContent__dungeon__round-count">
+          <p>Level: <span id="playerRound">0</span></p>
+        </div>
+        <!-- Money count -->
+        <div class="mainContent__dungeon__money-count">
+          <p>coins: <span id="playerCoins">0</span></p>
+        </div>
+        <!-- Diamond count -->
+        <div class="mainContent__dungeon__diamond-count">
+          <p>diamonds: <span id="playerDiamonds">0</span></p>
+        </div>
+        <!-- Healthbar top -->
+        <div class="mainContent__dungeon__health-bar-all">
+          <div class="mainContent__dungeon__health-bar-all__health-bar">
+            <div class="mainContent__dungeon__health-bar-all__health-bar__health-bar-glass">
+              <div
+                class="mainContent__dungeon__health-bar-all__health-bar__health-bar-glass__health-bar-fluid health-bar-fluid"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mainContent__playerInput">
+        <!-- Healthbar bottom -->
+        <div class="mainContent__playerInput__health-bar-all">
+          <div class="mainContent__playerInput__health-bar-all__health-bar">
+            <div class="mainContent__playerInput__health-bar-all__health-bar__health-bar-glass">
+              <div
+                class="mainContent__playerInput__health-bar-all__health-bar__health-bar-glass__health-bar-fluid health-bar-fluid-mobile"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- Player input section -->
+        <div class="mainContent__playerInput__buttons">
+          <!-- Level up -->
+          <button class="mainContent__playerInput__levelUp" onclick="levelUp()">
+            <p>Level Up</p>
+            <span class="mainContent__playerInput__price">
+              <img
+                class="mainContent__playerInput__coin"
+                src="https://i.postimg.cc/zD9N4J56/coin.gif"
+                alt=""
+              />
+              <span class="mainContent__playerInput__price__num" id="levelUpPrice">10</span>
+            </span>
+          </button>
+          <!-- Shop -->
+          <button class="mainContent__playerInput__shop" id="shop_btn">
+            <p>Shop</p>
+            <span>
+              <img
+                class="mainContent__playerInput__chest"
+                src="https://i.postimg.cc/BnT9kyC0/treasure-chest.gif"
+                alt=""
+            /></span>
+          </button>
+          <!-- Power up -->
+          <button class="mainContent__playerInput__powerUp" onclick="powerUp()">
+            <p>Power Up</p>
+            <span class="mainContent__playerInput__price">
+              <img
+                class="mainContent__playerInput__coin"
+                src="https://i.postimg.cc/zD9N4J56/coin.gif"
+                alt=""
+              />
+              <span class="mainContent__playerInput__price__num" id="powerUpPrice">10</span>
+            </span>
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Hidden numbers -->
+    <section class="hidden">
+      <section>
+        <span id="hidden-max-hp"></span>
+        <span id="hidden-hp"></span>
+      </section>
+      <button onclick="getRich()">test button</button>
+      <section><span id="selectedChar">0</span></section>
+    </section>
+
+    <!-- Javascript files -->
+    <script src="./js/assets/variables.js"></script>
+    <script src="./js/assets/characters.js"></script>
+    <script src="./js/assets/startingpoint.js"></script>
+    <script src="./js/assets/attackphase.js"></script>
+    <script src="./js/assets/respawn.js"></script>
+    <script src="./js/assets/powerups.js"></script>
+    <script src="./js/assets/pop_up_modal.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

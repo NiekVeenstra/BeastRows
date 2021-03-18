@@ -1,0 +1,113 @@
+.header {
+  &__title {
+    width: 80%;
+  }
+  &__h1 {
+    font-family: "Pirata One", cursive;
+    font-size: 17rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    color: rgba(255, 222, 32, 0.836);
+    text-shadow: 1px 1px 1px #919191ec, 1px 2px 1px #919191, 1px 3px 1px #919191,
+      1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191,
+      1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191,
+      1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2),
+      1px 25px 35px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
+  }
+  &__slideshow {
+    list-style-type: none;
+    top: -1px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    z-index: -3;
+    &:after {
+      top: -1px;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0px;
+      z-index: -3;
+    }
+    &__li {
+      &:nth-child(1) span {
+        background-image: url("https://i.postimg.cc/VN6kBmj6/BG-dg2.jpg");
+      }
+      &:nth-child(2) span {
+        background-image: url("https://i.postimg.cc/RhcSVFzP/BG-dg3-jpg.png");
+        animation-delay: 20s;
+      }
+      &:nth-child(3) span {
+        background-image: url("https://i.postimg.cc/MGFK9NDY/BG-dg4.jpg");
+        animation-delay: 40s;
+      }
+      &:nth-child(4) span {
+        background-image: url("https://i.postimg.cc/mD1ZJjpW/BG-dg6.jpg");
+        animation-delay: 60s;
+      }
+      &:nth-child(5) span {
+        background-image: url("https://i.postimg.cc/YqH2D11T/BG-dg5.png");
+        animation-delay: 80s;
+      }
+      &:nth-child(6) span {
+        background-image: url("https://i.postimg.cc/y6SW-b123/BG-dg7.jpg");
+        animation-delay: 100s;
+      }
+      &__span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        color: transparent;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        opacity: 0;
+        z-index: 0;
+        animation: imageAnimation 120s infinite 0s;
+      }
+    }
+  }
+}
+
+/* BACKGROUND IMAGES */
+
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  3% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  17% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  17% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

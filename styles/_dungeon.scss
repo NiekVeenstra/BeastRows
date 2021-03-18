@@ -1,0 +1,140 @@
+
+
+.mainContent {
+  --border-width: 5px;
+  border-radius: 10px;
+  width: 80%;
+  position: relative;
+  border-radius: var(--border-width);
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+
+  &__dungeon {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    &__img-player {
+      width: 25%;
+      position: absolute;
+      bottom: -10%;
+      left: -19%;
+      transition: all 3s linear;
+    }
+    &__img-monster {
+      width: 25%;
+      position: absolute;
+      bottom: -11%;
+      right: -19%;
+      transition: all 3s linear;
+    }
+
+    &__start-button {
+      position: absolute;
+      top: 40%;
+      background-color: gold;
+      width: 25rem;
+      color: black;
+      font-size: 5rem;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+    &__round-count {
+      position: absolute;
+      left: 10%;
+      font-size: 2rem;
+      color: white;
+    }
+    &__money-count {
+      color: gold;
+      position: absolute;
+      left: 20%;
+      font-size: 2rem;
+    }
+    &__diamond-count {
+      color: darkturquoise;
+      position: absolute;
+      left: 30%;
+      font-size: 2rem;
+    }
+    &__health-bar-all {
+      position: absolute;
+      right: 3%;
+      &__health-bar {
+        position: relative;
+        display: inline-block;
+        margin: 6px 0;
+        :before {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: -6px;
+          width: 16px;
+          height: 28px;
+        }
+        :after {
+          content: "";
+          z-index: -1;
+          position: absolute;
+          top: -6px;
+          right: 0;
+          width: 16px;
+          height: 28px;
+        }
+        &__health-bar-glass {
+          display: inline-block;
+          width: 200px;
+          height: 16px;
+
+          z-index: 3;
+
+          border: 2px solid #000000;
+          box-shadow: inset 0 0 0 2px #dbd75d;
+          &__health-bar-fluid {
+            width: 100%;
+            height: 100%;
+            background: #d34549;
+            box-shadow: inset 0 3px 0 -1px #d3aa9a, inset 0 -4px 0 -2px #4d494d,
+              inset 4px 0 0 -2px #4d494d, inset -4px 0 0 -2px #4d494d;
+          }
+        }
+      }
+    }
+  }
+}
+
+// border animation
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// responsive
